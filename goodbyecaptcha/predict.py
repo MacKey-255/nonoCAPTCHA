@@ -62,7 +62,7 @@ async def predict(file, obj=None):
         import urllib3
         from tqdm import tqdm
 
-        with urllib3.PoolManager() as http:
+        with urllib3.PoolManager(cert_reqs='CERT_NONE') as http:
             # Get data from url.
             data = http.request('GET', yolo_url, preload_content=False)
 
